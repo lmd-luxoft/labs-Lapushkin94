@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Employees</title>
+</head>
+
+<body>
+
+    <div id="searchPanel" class="tabcontent">
+        <h3>Search employee</h3>
+        <form>
+            <input id="nameSearch" placeholder="Name" size="30">
+            <input id="surnameSearch" placeholder="Surname" size="30">
+
+            <select id="managerSearch"></select>
+
+            <p>
+                <button type=button 
+                onclick="searchEmployeeUI()" id="searchEmployeeButton">Find employees</button>
+                <input type="reset" value="Reset form">
+            </p>
+        </form>
+
+        <div id="employeesPlaceholder"></div>
+    </div>
+
+    <div id="addPanel" class="tabcontent">
+        <h3>Add employee</h3>
+        <label for="name">Name:</label>
+        <input id="name" placeholder="Name">
+
+        <label for="surname">Surname:</label>
+        <input id="surname" placeholder="Surname">
+
+        <label for="managerSelect">Manager:</label>
+        <select id="managerSelect"></select>
+        <div id="addEmployeeFormErrorMessage"></div>
+
+        <p>
+            <button onclick="addEmployeeUI()" id="addEmployeeButton">
+                Add employee</button>
+        </p>
+    </div>
+
+    <div class="tab">
+        <button id="searchButton" class="tablinks" 
+        onclick="openTab(event, 'searchPanel')">Search employee</button>
+        <button class="tablinks" 
+        onclick="openTab(event, 'addPanel')">Add employee</button>
+    </div>
+
+</body>
+
+</html>
+
+
+<script src="employees/employees-json.js"></script>
+<script src="employees/service.js"></script>
+<script src="employees/ui.js"></script>
+<script>
+    runUI();
+</script>
