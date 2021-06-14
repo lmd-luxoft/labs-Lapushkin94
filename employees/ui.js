@@ -1,6 +1,8 @@
 const PLACEHOLDER = 'employeesPlaceholder';
+import {addEmployee, deleteEmployee, findById, setEmployeeManager, searchEmployees} from './service';
+import {EMPLOYEES_DATA} from './employees-json';
 
-function runUI() {
+export function runUI() {
     showEmployees(EMPLOYEES_DATA.employees);
     fillSelect(document.getElementById("managerSelect"), getEmployeesOptions());
     fillSelect(document.getElementById("managerSearch"), getEmployeesOptions());
@@ -46,7 +48,7 @@ function removeEmployeeUI(id) {
     showEmployees(EMPLOYEES_DATA.employees);
 }
 
-function addEmployeeUI() {
+export function addEmployeeUI() {
     let errorHTML = "";
     const name = document.getElementById("name").value;
     if (name == "") {
@@ -71,9 +73,9 @@ function addEmployeeUI() {
 }
 
 function fillSelect(select, values, selectedValue) {
-
+    select.innerHTML = "";
     const defaultOption = document.createElement("option");
-    defaultOption.text = "No manager";
+    defaultOption.text = "Default";
     defaultOption.selected = true;
     select.appendChild(defaultOption);
 
@@ -97,11 +99,11 @@ function getEmployeesOptions() {
     return options;
 }
 
-function searchEmployeeUI() {
+export function searchEmployeeUI() {
     const name = document.getElementById("nameSearch").value;
     const surname = document.getElementById("surnameSearch").value;
     let managerRef = document.getElementById("managerSearch").value;
-    if (managerRef == "No manager") {
+    if (managerRef == "Default") {
         managerRef = "";
     }
 
@@ -109,7 +111,7 @@ function searchEmployeeUI() {
     showEmployees(employees);
 }
 
-function openTab(event, id) {
+export function openTab(event, id) {
     var i, tabcontent, tablinks;
 
     tabcontent = document.getElementsByClassName("tabcontent");
