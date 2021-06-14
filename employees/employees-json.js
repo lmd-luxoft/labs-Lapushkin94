@@ -35,6 +35,12 @@ const EMPLOYEES_DATA = {
             name: "Ernest",
             surname: "Sanachin",
             department: "Delivery"
+        },
+        {
+            id: 7,
+            name: "Boris",
+            surname: "Britva",
+            department: "Spy"
         }
     ]
 }
