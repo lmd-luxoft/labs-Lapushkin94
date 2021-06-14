@@ -8,24 +8,30 @@ const EMPLOYEES_DATA = {
         },
         {
             id: 2,
+            name: "Timofei",
+            surname: "Kudriavtsev",
+            department: "PIT"
+        },
+        {
+            id: 3,
             name: "Oleg",
             surname: "Penkrat",
             department: "QA"
         },
         {
-            id: 3,
+            id: 4,
             name: "Alex",
             surname: "Eremin",
             department: "Frontend"
         },
         {
-            id: 4,
+            id: 5,
             name: "Maria",
             surname: "Andreeva",
             department: "Arch"
         },
         {
-            id: 5,
+            id: 6,
             name: "Ernest",
             surname: "Sanachin",
             department: "Delivery"
