@@ -1,4 +1,5 @@
 const employeeMap = {};
+import {EMPLOYEES_DATA} from './employees-json';
 
 function findByName(name, surname) {
 
@@ -13,7 +14,7 @@ function findByName(name, surname) {
     return result_employee_array;
 }
 
-function addEmployee(name, surname) {
+export function addEmployee(name, surname) {
     if (!name || name.length == 0 || !surname || surname.length == 0) {
         throw new Error("empty name or surname");
     }
@@ -29,7 +30,7 @@ function addEmployee(name, surname) {
     }
 }
 
-function deleteEmployee(id) {
+export function deleteEmployee(id) {
     let indexToDelete = 0;
     for (let employee of EMPLOYEES_DATA.employees) {
         if (employee.id === id) {
@@ -58,7 +59,7 @@ function alternativeMethodToShowAllEmployees() {
     EMPLOYEES_DATA.employees.forEach(showEmployee);
 }
 
-function findById(id) {
+export function findById(id) {
     if (employeeMap[id]) {
         return employeeMap[id];
     }
@@ -137,12 +138,12 @@ function getEmployeeJSON(id) {
     return JSON.stringify(employee);
 }
 
-function setEmployeeManager(id, managerId) {
+export function setEmployeeManager(id, managerId) {
     const employee = findById(id);
     employee.managerRef = managerId;
 }
 
-function searchEmployees(name, surname, managerRef) {
+export function searchEmployees(name, surname, managerRef) {
     let result = [];
     for (let e of EMPLOYEES_DATA.employees) {
         if ((!name || e.name == name) &&
